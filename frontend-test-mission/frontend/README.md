@@ -34,18 +34,18 @@ Este projeto foi desenvolvido com o objetivo de demonstrar conhecimentos em Reac
 ## 🧱 Estrutura do projeto
 
 
-├── public/
-├── src/
-│   ├── components/        # Componentes reutilizáveis (ex: CartPanel, CartIcon)
-│   ├── context/           # Context API (ex: CartContext)
-│   ├── pages/             # Páginas da aplicação (Home, ProductPage, Checkout)
-│   ├── services/          # Configuração da API (axios)
-│   ├── App.jsx            # Definição das rotas
-│   ├── index.js           # Entrada da aplicação
-├── mock/                
-│   ├── product.json       # Mock de produtos (JSON Server)
-├── README.md
-└── package.json
+-├── public/
+-├── src/
+-│   ├── components/        # Componentes reutilizáveis (ex: CartPanel, CartIcon)
+-│   ├── context/           # Context API (ex: CartContext)
+-│   ├── pages/             # Páginas da aplicação (Home, ProductPage, Checkout)
+-│   ├── services/          # Configuração da API (axios)
+-│   ├── App.jsx            # Definição das rotas
+-│   ├── index.js           # Entrada da aplicação
+-├── mock/                
+-│   ├── product.json       # Mock de produtos (JSON Server)
+-├── README.md
+-└── package.json
 
 ## ⚙️ Como rodar o projeto localmente
 1. Clone o repositório
