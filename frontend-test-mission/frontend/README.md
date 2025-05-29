@@ -53,6 +53,7 @@ Este projeto foi desenvolvido com o objetivo de demonstrar conhecimentos em Reac
 
 2. Inicie o servidor do API fake (Lista de Produtos)
     - cd frontend-test-mission
+    - npm install
     - npm run api
     - Acesse em: http://localhost:3001 
 
@@ -61,7 +62,7 @@ Este projeto foi desenvolvido com o objetivo de demonstrar conhecimentos em Reac
     - npm install
 
 4. Inicie o frontend
-    - npm run dev
+    - npm start
     - Acesse em: http://localhost:3000
  
 
