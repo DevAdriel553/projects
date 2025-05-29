@@ -12,11 +12,10 @@ export default function CartIcon({ onOpen }) {
       position={isMobile ? 'fixed' : 'relative'}
       bottom={isMobile ? '20px' : 'auto'}
       right={isMobile ? '20px' : 'auto'}
-      zIndex="popover"
+      zIndex="1"
       display="flex"
       alignItems="center"
       justifyContent="flex-end"
-      mb={4}
       bg={isMobile ? 'teal.500' : 'transparent'}
       borderRadius="full"
       p={isMobile ? 2 : 0}

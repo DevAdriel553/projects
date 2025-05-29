@@ -167,11 +167,6 @@ export default function Checkout() {
                 <FormErrorMessage>{errors.numero?.message}</FormErrorMessage>
               </FormControl>
 
-              <FormControl>
-                <FormLabel>Serviço Rest (opcional)</FormLabel>
-                <Input {...register('servicoRest')} />
-              </FormControl>
-
               <Button
                 type="submit"
                 colorScheme="teal"
