@@ -16,6 +16,8 @@ import {
 import { FiPlus, FiMinus, FiTrash2 } from 'react-icons/fi';
 import { useCart } from '../context/CartContext';
 import { Link } from 'react-router-dom';
+import { CloseButton, useBreakpointValue } from '@chakra-ui/react';
+
 
 export default function CartPanel({ isOpen, onClose }) {
   const { items, increment, decrement, removeFromCart, total, clearCart } = useCart();
@@ -24,7 +26,12 @@ export default function CartPanel({ isOpen, onClose }) {
     <Drawer isOpen={isOpen} placement="right" onClose={onClose} size="sm">
       <DrawerOverlay />
       <DrawerContent>
-        <DrawerHeader>Carrinho de Compras</DrawerHeader>
+        <DrawerHeader display="flex" justifyContent="space-between" alignItems="center">
+          Carrinho de Compras
+          {useBreakpointValue({ base: true, md: false }) && (
+            <CloseButton onClick={onClose} />
+          )}
+        </DrawerHeader>
 
         <DrawerBody>
           {items.length === 0 ? (

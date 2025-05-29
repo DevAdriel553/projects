@@ -1,36 +1,52 @@
-import React from 'react';
-import { Box, IconButton, Badge, Text, useDisclosure } from '@chakra-ui/react';
+import { Box, IconButton, Badge, Text, useBreakpointValue } from '@chakra-ui/react';
 import { FiShoppingCart } from 'react-icons/fi';
 import { useCart } from '../context/CartContext';
-import CartPanel from './CartPanel';
 
-export default function CartIcon() {
+export default function CartIcon({ onOpen }) {
   const { quantity, total } = useCart();
-  const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const isMobile = useBreakpointValue({ base: true, md: false });
 
   return (
-    <>
-      <Box display="flex" alignItems="center" justifyContent="flex-end" mb={4}>
-        <IconButton
-          icon={<FiShoppingCart />}
-          onClick={onOpen}  // abrir drawer aqui
-          variant="ghost"
-          position="relative"
-          aria-label="Carrinho"
-          size="lg"
-        />
-        {quantity > 0 && (
-          <Badge colorScheme="red" borderRadius="full" ml={-4} mt={-4} fontSize="0.8em">
-            {quantity}
-          </Badge>
-        )}
+    <Box
+      position={isMobile ? 'fixed' : 'relative'}
+      bottom={isMobile ? '20px' : 'auto'}
+      right={isMobile ? '20px' : 'auto'}
+      zIndex="popover"
+      display="flex"
+      alignItems="center"
+      justifyContent="flex-end"
+      mb={4}
+      bg={isMobile ? 'teal.500' : 'transparent'}
+      borderRadius="full"
+      p={isMobile ? 2 : 0}
+      boxShadow={isMobile ? 'lg' : 'none'}
+    >
+      <IconButton
+        icon={<FiShoppingCart />}
+        onClick={onOpen}
+        variant="ghost"
+        position="relative"
+        aria-label="Carrinho"
+        size="lg"
+        color={isMobile ? 'white' : 'inherit'}
+      />
+      {quantity > 0 && (
+        <Badge
+          colorScheme="red"
+          borderRadius="full"
+          ml={-4}
+          mt={-4}
+          fontSize="0.8em"
+        >
+          {quantity}
+        </Badge>
+      )}
+      {!isMobile && (
         <Text ml={2} fontWeight="bold">
           R$ {total.toFixed(2)}
         </Text>
-      </Box>
-
-      {/* CartPanel recebe o controle do drawer */}
-      <CartPanel isOpen={isOpen} onClose={onClose} />
-    </>
+      )}
+    </Box>
   );
 }
